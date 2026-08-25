@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030407" />
+    <meta name="description" content="用手掌开合控制宇宙星辰的沉浸式互动体验" />
+    <title>掌心宇宙 · Hand Cosmos</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main class="experience">
+      <canvas id="cosmos" aria-label="跟随手掌开合变化的星辰宇宙"></canvas>
+      <div class="vignette"></div>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="掌心宇宙首页">
+          <span class="brand-mark"></span>
+          <span>HAND COSMOS</span>
+        </a>
+        <div class="system-state" id="systemState">
+          <span class="state-dot"></span>
+          <span id="stateText">等待连接</span>
+        </div>
+      </header>
+
+      <section class="intro" id="intro">
+        <p class="eyebrow">GESTURE-DRIVEN UNIVERSE</p>
+        <h1>掌心，自有星河</h1>
+        <p class="lead">张开手掌，释放群星。<br />轻轻握拳，宇宙便回归掌心。</p>
+        <button class="start-button" id="startButton" type="button">
+          <span>启动手势感应</span>
+          <span class="button-arrow">↗</span>
+        </button>
+        <p class="privacy"><span>◉</span> 画面仅在本机识别，不会上传</p>
+      </section>
+
+      <section class="gesture-panel" id="gesturePanel" aria-live="polite">
+        <div class="gesture-ring">
+          <div class="hand-icon" id="handIcon" aria-hidden="true">
+            <span class="palm"></span>
+            <span class="finger f1"></span><span class="finger f2"></span>
+            <span class="finger f3"></span><span class="finger f4"></span>
+            <span class="finger thumb"></span>
+          </div>
+          <div class="ring-progress" id="ringProgress"></div>
+        </div>
+        <div class="gesture-copy">
+          <span class="gesture-label">当前手势</span>
+          <strong id="gestureName">张开手掌</strong>
+          <span id="gestureHint">让星辰向外延展</span>
+        </div>
+      </section>
+
+      <div class="meter" aria-label="星辰扩张程度">
+        <span>收拢</span>
+        <div class="meter-track"><i id="meterFill"></i></div>
+        <span>张开</span>
+      </div>
+
+      <div class="fallback" id="fallback">
+        <span>演示模式</span>
+        <span>按住屏幕收拢星辰</span>
+      </div>
+      <video id="camera" playsinline muted></video>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+
